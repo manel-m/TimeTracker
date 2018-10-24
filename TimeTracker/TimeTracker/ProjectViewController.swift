@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+class ProjectViewController : UIViewController {
+    
+    @IBOutlet weak var navBar: UINavigationBar!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //navBar.topItem?.title = "hello"
+    }
+   
+    
+}
