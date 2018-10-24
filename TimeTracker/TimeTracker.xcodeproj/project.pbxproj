@@ -14,6 +14,7 @@
 		99146AE2217ED7FD009D7D6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99146AE1217ED7FD009D7D6D /* Assets.xcassets */; };
 		99146AE5217ED7FD009D7D6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99146AE3217ED7FD009D7D6D /* LaunchScreen.storyboard */; };
 		99146AED21802A12009D7D6D /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99146AEC21802A12009D7D6D /* ProjectViewController.swift */; };
+		99146AEF21803BC2009D7D6D /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99146AEE21803BC2009D7D6D /* GoalsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		99146AE4217ED7FD009D7D6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99146AE6217ED7FD009D7D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99146AEC21802A12009D7D6D /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		99146AEE21803BC2009D7D6D /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				99146AD7217ED7FD009D7D6D /* AppDelegate.swift */,
 				99146AD9217ED7FD009D7D6D /* InitialViewController.swift */,
 				99146AEC21802A12009D7D6D /* ProjectViewController.swift */,
+				99146AEE21803BC2009D7D6D /* GoalsViewController.swift */,
 				99146ADB217ED7FD009D7D6D /* Main.storyboard */,
 				99146AE1217ED7FD009D7D6D /* Assets.xcassets */,
 				99146AE3217ED7FD009D7D6D /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 				99146ADA217ED7FD009D7D6D /* InitialViewController.swift in Sources */,
 				99146AD8217ED7FD009D7D6D /* AppDelegate.swift in Sources */,
 				99146AE0217ED7FD009D7D6D /* TimeTracker.xcdatamodeld in Sources */,
+				99146AEF21803BC2009D7D6D /* GoalsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
