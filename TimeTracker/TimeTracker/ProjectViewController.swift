@@ -12,11 +12,11 @@ class ProjectViewController : UIViewController {
     
     var projectName : String! = ""
     
-    //@IBOutlet weak var navBar: UINavigationItem!
+    @IBOutlet weak var navBar: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navBar.title = projectName
+        navBar.title = projectName
         print(projectName)
     }
    

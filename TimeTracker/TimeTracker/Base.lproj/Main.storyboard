@@ -123,9 +123,6 @@
                                 <state key="normal" title="Goals">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="jmg-7X-MUa" kind="showDetail" id="H6e-Ut-fQo"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,10 +138,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vs9-Go-xL6"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Zcl-u7-rCk" userLabel="project Name"/>
+                    <connections>
+                        <outlet property="navBar" destination="Zcl-u7-rCk" id="Y5c-c8-QUR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6r2-Av-nai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="105"/>
+            <point key="canvasLocation" x="956" y="105"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zRa-b8-iu3">
@@ -235,11 +236,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Project Name" id="Ctq-ub-XW4">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="9Vt-xW-Yh0">
-                                            <connections>
-                                                <segue destination="aH1-yi-LaW" kind="show" id="ZRv-gn-9Op"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="9Vt-xW-Yh0"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -278,13 +275,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdw-UN-LEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1724" y="-146"/>
+            <point key="canvasLocation" x="1866" y="105"/>
         </scene>
     </scenes>
     <resources>
         <image name="TimeTracker" width="225" height="225"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="H6e-Ut-fQo"/>
-    </inferredMetricsTieBreakers>
 </document>

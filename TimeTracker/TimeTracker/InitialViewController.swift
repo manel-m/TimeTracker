@@ -35,6 +35,7 @@ class InitialViewController: UIViewController {
                 let projectVC = self.storyboard?.instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
                 projectVC.projectName = name
                 self.navigationController?.pushViewController(projectVC, animated: true)
+
             }
         }
         saveAction.isEnabled = false
