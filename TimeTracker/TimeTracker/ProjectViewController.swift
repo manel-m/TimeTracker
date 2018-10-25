@@ -10,10 +10,14 @@ import Foundation
 import UIKit
 class ProjectViewController : UIViewController {
     
-    @IBOutlet weak var navBar: UINavigationBar!
+    var projectName : String! = ""
+    
+    //@IBOutlet weak var navBar: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navBar.topItem?.title = "hello"
+        //navBar.title = projectName
+        print(projectName)
     }
    
     
