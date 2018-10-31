@@ -99,22 +99,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXA-kN-gvH">
-                                <rect key="frame" x="63" y="308" width="88" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="EPH-98-ruw"/>
-                                    <constraint firstAttribute="height" constant="50" id="eBX-ik-BVj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Start"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTf-jB-zso">
-                                <rect key="frame" x="218" y="308" width="41" height="50"/>
+                                <rect key="frame" x="312" y="308" width="41" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KEw-Mk-vuR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="StopTimer:" destination="aH1-yi-LaW" eventType="touchUpInside" id="I52-sx-dcS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSW-YD-xZN">
                                 <rect key="frame" x="26" y="387" width="333" height="35"/>
@@ -123,9 +117,34 @@
                                 <state key="normal" title="Goals">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="jmg-7X-MUa" kind="show" id="MrX-qu-ncp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXA-kN-gvH">
+                                <rect key="frame" x="26" y="308" width="42" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eBX-ik-BVj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="StartTimer:" destination="aH1-yi-LaW" eventType="touchUpInside" id="R2H-N8-w2w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpA-Yo-1eg">
+                                <rect key="frame" x="159" y="308" width="53" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rSI-Kk-Qo9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="PauseTimer:" destination="aH1-yi-LaW" eventType="touchUpInside" id="boj-gB-5vt"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTO-6K-c5t">
-                                <rect key="frame" x="155" y="160" width="60" height="60"/>
+                                <rect key="frame" x="157" y="161" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="KjM-QS-gdz"/>
                                     <constraint firstAttribute="width" constant="60" id="sMb-mf-7io"/>
@@ -137,24 +156,32 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LSW-YD-xZN" firstAttribute="top" secondItem="mTO-6K-c5t" secondAttribute="bottom" constant="167" id="02k-8y-KqA"/>
+                            <constraint firstItem="LSW-YD-xZN" firstAttribute="top" secondItem="mTO-6K-c5t" secondAttribute="bottom" constant="166" id="02k-8y-KqA"/>
                             <constraint firstItem="VXA-kN-gvH" firstAttribute="baseline" secondItem="cTf-jB-zso" secondAttribute="baseline" id="1lt-hC-GfM"/>
-                            <constraint firstItem="vs9-Go-xL6" firstAttribute="trailing" secondItem="mTO-6K-c5t" secondAttribute="trailing" constant="160" id="2wU-M7-MeG"/>
+                            <constraint firstItem="vs9-Go-xL6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mTO-6K-c5t" secondAttribute="trailing" id="2wU-M7-MeG"/>
+                            <constraint firstItem="vs9-Go-xL6" firstAttribute="trailing" secondItem="mTO-6K-c5t" secondAttribute="trailing" constant="158" id="41M-nP-PNh"/>
                             <constraint firstItem="LSW-YD-xZN" firstAttribute="trailing" secondItem="1EB-cj-4Rv" secondAttribute="trailingMargin" id="569-HJ-2kq"/>
-                            <constraint firstItem="mTO-6K-c5t" firstAttribute="top" secondItem="vs9-Go-xL6" secondAttribute="top" constant="140" id="Cob-Kz-1fS"/>
-                            <constraint firstAttribute="trailing" secondItem="cTf-jB-zso" secondAttribute="trailing" constant="116" id="bbH-2F-ntg"/>
-                            <constraint firstItem="mTO-6K-c5t" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="155" id="boW-TG-FWh"/>
+                            <constraint firstAttribute="trailing" secondItem="GpA-Yo-1eg" secondAttribute="trailing" constant="163" id="5LC-Gq-I8E"/>
+                            <constraint firstItem="mTO-6K-c5t" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="157" id="CDO-dM-BdG"/>
+                            <constraint firstItem="mTO-6K-c5t" firstAttribute="top" secondItem="vs9-Go-xL6" secondAttribute="top" constant="141" id="Cob-Kz-1fS"/>
+                            <constraint firstItem="mTO-6K-c5t" firstAttribute="top" secondItem="vs9-Go-xL6" secondAttribute="top" constant="141" id="Wch-3w-spQ"/>
+                            <constraint firstItem="GpA-Yo-1eg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mTO-6K-c5t" secondAttribute="leading" id="WnD-iX-3Ae"/>
+                            <constraint firstItem="GpA-Yo-1eg" firstAttribute="centerY" secondItem="1EB-cj-4Rv" secondAttribute="centerY" id="a9k-fK-IQB"/>
+                            <constraint firstItem="GpA-Yo-1eg" firstAttribute="top" secondItem="mTO-6K-c5t" secondAttribute="bottom" constant="87" id="b1n-Bx-jwC"/>
+                            <constraint firstAttribute="trailing" secondItem="cTf-jB-zso" secondAttribute="trailing" constant="22" id="bbH-2F-ntg"/>
+                            <constraint firstItem="mTO-6K-c5t" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="157" id="boW-TG-FWh"/>
                             <constraint firstItem="LSW-YD-xZN" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="26" id="hFf-NQ-t4j"/>
                             <constraint firstItem="cTf-jB-zso" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VXA-kN-gvH" secondAttribute="trailing" constant="8" symbolic="YES" id="nUO-au-Crb"/>
                             <constraint firstItem="VXA-kN-gvH" firstAttribute="centerY" secondItem="1EB-cj-4Rv" secondAttribute="centerY" id="ruP-9L-azo"/>
                             <constraint firstItem="LSW-YD-xZN" firstAttribute="top" secondItem="VXA-kN-gvH" secondAttribute="bottom" constant="29" id="xOx-aK-mZE"/>
-                            <constraint firstItem="VXA-kN-gvH" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="63" id="zaD-6L-yDD"/>
+                            <constraint firstItem="VXA-kN-gvH" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="26" id="zaD-6L-yDD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vs9-Go-xL6"/>
                     </view>
                     <navigationItem key="navigationItem" id="Zcl-u7-rCk" userLabel="project Name"/>
                     <connections>
                         <outlet property="navBar" destination="Zcl-u7-rCk" id="Y5c-c8-QUR"/>
+                        <outlet property="timeLabel" destination="mTO-6K-c5t" id="5eC-we-7US"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6r2-Av-nai" userLabel="First Responder" sceneMemberID="firstResponder"/>
