@@ -124,12 +124,26 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTO-6K-c5t">
+                                <rect key="frame" x="155" y="160" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="KjM-QS-gdz"/>
+                                    <constraint firstAttribute="width" constant="60" id="sMb-mf-7io"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LSW-YD-xZN" firstAttribute="top" secondItem="mTO-6K-c5t" secondAttribute="bottom" constant="167" id="02k-8y-KqA"/>
                             <constraint firstItem="VXA-kN-gvH" firstAttribute="baseline" secondItem="cTf-jB-zso" secondAttribute="baseline" id="1lt-hC-GfM"/>
+                            <constraint firstItem="vs9-Go-xL6" firstAttribute="trailing" secondItem="mTO-6K-c5t" secondAttribute="trailing" constant="160" id="2wU-M7-MeG"/>
                             <constraint firstItem="LSW-YD-xZN" firstAttribute="trailing" secondItem="1EB-cj-4Rv" secondAttribute="trailingMargin" id="569-HJ-2kq"/>
+                            <constraint firstItem="mTO-6K-c5t" firstAttribute="top" secondItem="vs9-Go-xL6" secondAttribute="top" constant="140" id="Cob-Kz-1fS"/>
                             <constraint firstAttribute="trailing" secondItem="cTf-jB-zso" secondAttribute="trailing" constant="116" id="bbH-2F-ntg"/>
+                            <constraint firstItem="mTO-6K-c5t" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="155" id="boW-TG-FWh"/>
                             <constraint firstItem="LSW-YD-xZN" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="26" id="hFf-NQ-t4j"/>
                             <constraint firstItem="cTf-jB-zso" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VXA-kN-gvH" secondAttribute="trailing" constant="8" symbolic="YES" id="nUO-au-Crb"/>
                             <constraint firstItem="VXA-kN-gvH" firstAttribute="centerY" secondItem="1EB-cj-4Rv" secondAttribute="centerY" id="ruP-9L-azo"/>
@@ -145,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6r2-Av-nai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="105"/>
+            <point key="canvasLocation" x="956" y="104.7976011994003"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zRa-b8-iu3">
