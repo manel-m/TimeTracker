@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class InitialViewController: UIViewController {
 
+    var dataController:DataController!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,9 +33,11 @@ class InitialViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
             if let name = alert.textFields?.first?.text {
-              //print(name)
+                let project = self.addProject(nameProject : name)
                 let projectVC = self.storyboard?.instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
                 projectVC.projectName = name
+                projectVC.project = project
+                projectVC.dataController = self.dataController
                 self.navigationController?.pushViewController(projectVC, animated: true)
 
             }
@@ -54,6 +58,13 @@ class InitialViewController: UIViewController {
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
         present(alert, animated: true, completion: nil)
+    }
+    func addProject (nameProject : String)-> Project {
+        let project = Project(context: dataController.viewContext)
+        project.creationDate = Date()
+        project.name = nameProject
+        try? dataController.viewContext.save()
+        return project
     }
 
 

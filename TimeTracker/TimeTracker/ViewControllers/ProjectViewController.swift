@@ -8,9 +8,11 @@
 
 import Foundation
 import UIKit
+import CoreData
 class ProjectViewController : UIViewController {
-    
+    var dataController:DataController!
     var projectName : String! = ""
+    var project: Project?
     var time = 0
     // timer
     var timer = Timer()
@@ -30,18 +32,29 @@ class ProjectViewController : UIViewController {
         //scheduledTimer
     }
     
-    
     @IBAction func PauseTimer(_ sender: UIButton) {
         timer.invalidate()
     }
     @IBAction func StopTimer(_ sender: UIButton) {
         timer.invalidate()
+        let duration = Int(timeLabel.text!)
+        addTask(duration:Int32(duration!) )
         time = 0
-        timeLabel.text = "0"
+        timeLabel.text = String(time)
+        
     }
-    
     @objc func Action (){
         time += 1
         timeLabel.text = String(time)
     }
+    
+    func addTask (duration : Int32) {
+        let task = Task(context: dataController.viewContext)
+        task.creationDate = Date ()
+        task.duration = duration
+        task.project = project
+        try? dataController.viewContext.save()
+    }
+
+    
 }

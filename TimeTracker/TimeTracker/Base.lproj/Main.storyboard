@@ -204,7 +204,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2b-VT-zok" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-615" y="1250"/>
+            <point key="canvasLocation" x="36" y="1258"/>
         </scene>
         <!--ProjectsStatViewController-->
         <scene sceneID="VUH-20-JhR">
@@ -233,7 +233,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wa3-K7-wga" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="297" y="914"/>
+            <point key="canvasLocation" x="956" y="860"/>
         </scene>
         <!--GoalsStatViewController-->
         <scene sceneID="QhK-OF-Ill">
@@ -262,7 +262,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nct-Dw-k1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="297" y="1620"/>
+            <point key="canvasLocation" x="956" y="1682"/>
         </scene>
         <!--GoalsViewController-->
         <scene sceneID="lFD-5o-t8F">
@@ -309,14 +309,24 @@
                                 <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVD-y3-0fP">
+                                <rect key="frame" x="33" y="390" width="313" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Done"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="5Qj-70-B23"/>
                     </view>
+                    <connections>
+                        <outlet property="dailyTextField" destination="8dd-b7-pRA" id="kN7-zm-vCw"/>
+                        <outlet property="weeklyTextField" destination="Wx1-QH-dRX" id="Vum-AS-VaW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdw-UN-LEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1866" y="105"/>
+            <point key="canvasLocation" x="1864.8" y="104.7976011994003"/>
         </scene>
     </scenes>
     <resources>

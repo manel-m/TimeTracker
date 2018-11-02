@@ -10,4 +10,14 @@ import Foundation
 import UIKit
 class GoalsViewController : UIViewController {
     
+    var dataController:DataController!
+    
+    @IBOutlet weak var dailyTextField: UITextField!
+    
+    @IBOutlet weak var weeklyTextField: UITextField!
+    
+    func saveGoal () {
+    
+    }
+    
 }

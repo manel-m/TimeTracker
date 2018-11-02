@@ -17,6 +17,7 @@ class DataController {
     
     init(modelName: String) {
         persistentContainer = NSPersistentContainer(name: modelName)
+        
     }
     
     func load (completion: (() -> Void )? = nil) {
