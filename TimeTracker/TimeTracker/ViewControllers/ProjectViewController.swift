@@ -43,6 +43,16 @@ class ProjectViewController : UIViewController {
         timeLabel.text = String(time)
         
     }
+    
+    @IBAction func GoalsButton(_ sender: UIButton) {
+      //prepare(for: <#T##UIStoryboardSegue#>, sender: <#T##Any?#>)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? GoalsViewController {
+            vc.dataController = dataController
+            vc.project = project
+        }
+    }
     @objc func Action (){
         time += 1
         timeLabel.text = String(time)

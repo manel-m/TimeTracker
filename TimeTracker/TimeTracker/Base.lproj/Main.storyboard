@@ -118,6 +118,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="GoalsButton:" destination="aH1-yi-LaW" eventType="touchUpInside" id="xdG-lD-5eE"/>
                                     <segue destination="jmg-7X-MUa" kind="show" id="MrX-qu-ncp"/>
                                 </connections>
                             </button>
@@ -209,7 +210,7 @@
         <!--ProjectsStatViewController-->
         <scene sceneID="VUH-20-JhR">
             <objects>
-                <tableViewController id="JS5-d0-gNp" userLabel="ProjectsStatViewController" sceneMemberID="viewController">
+                <tableViewController id="JS5-d0-gNp" userLabel="ProjectsStatViewController" customClass="ProjectsStatViewController" customModule="TimeTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nli-Jp-UjA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,7 +239,7 @@
         <!--GoalsStatViewController-->
         <scene sceneID="QhK-OF-Ill">
             <objects>
-                <tableViewController id="rdJ-aR-VIQ" userLabel="GoalsStatViewController" sceneMemberID="viewController">
+                <tableViewController id="rdJ-aR-VIQ" userLabel="GoalsStatViewController" customClass="GoalsStatViewController" customModule="TimeTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1Oz-br-ueb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -293,14 +294,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wx1-QH-dRX">
                                 <rect key="frame" x="157" y="254" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weekly Goals " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMk-Pv-jCX">
                                 <rect key="frame" x="16" y="247" width="123" height="44"/>
@@ -314,6 +315,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="DoneButton:" destination="jmg-7X-MUa" eventType="touchUpInside" id="TaK-Aw-mIm"/>
+                                    <segue destination="8Vr-XZ-C4w" kind="show" id="mt8-KW-E04"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -332,4 +337,7 @@
     <resources>
         <image name="TimeTracker" width="225" height="225"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mt8-KW-E04"/>
+    </inferredMetricsTieBreakers>
 </document>

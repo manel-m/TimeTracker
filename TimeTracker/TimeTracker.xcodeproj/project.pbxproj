@@ -16,6 +16,8 @@
 		99146AEF21803BC2009D7D6D /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99146AEE21803BC2009D7D6D /* GoalsViewController.swift */; };
 		99146AF4218188D6009D7D6D /* TimeTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99146AF2218188D6009D7D6D /* TimeTracker.xcdatamodeld */; };
 		99146AF62189692F009D7D6D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99146AF52189692F009D7D6D /* DataController.swift */; };
+		992A4723218D4FB400455C87 /* ProjectsStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992A4722218D4FB400455C87 /* ProjectsStatViewController.swift */; };
+		992A4725218D504500455C87 /* GoalsStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992A4724218D504500455C87 /* GoalsStatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		99146AEE21803BC2009D7D6D /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		99146AF3218188D6009D7D6D /* TimeTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTracker.xcdatamodel; sourceTree = "<group>"; };
 		99146AF52189692F009D7D6D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		992A4722218D4FB400455C87 /* ProjectsStatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsStatViewController.swift; sourceTree = "<group>"; };
+		992A4724218D504500455C87 /* GoalsStatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsStatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 				99146AD9217ED7FD009D7D6D /* InitialViewController.swift */,
 				99146AEC21802A12009D7D6D /* ProjectViewController.swift */,
 				99146AEE21803BC2009D7D6D /* GoalsViewController.swift */,
+				992A4722218D4FB400455C87 /* ProjectsStatViewController.swift */,
+				992A4724218D504500455C87 /* GoalsStatViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -165,8 +171,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				99146AED21802A12009D7D6D /* ProjectViewController.swift in Sources */,
+				992A4725218D504500455C87 /* GoalsStatViewController.swift in Sources */,
 				99146AF62189692F009D7D6D /* DataController.swift in Sources */,
 				99146ADA217ED7FD009D7D6D /* InitialViewController.swift in Sources */,
+				992A4723218D4FB400455C87 /* ProjectsStatViewController.swift in Sources */,
 				99146AD8217ED7FD009D7D6D /* AppDelegate.swift in Sources */,
 				99146AEF21803BC2009D7D6D /* GoalsViewController.swift in Sources */,
 				99146AF4218188D6009D7D6D /* TimeTracker.xcdatamodeld in Sources */,
