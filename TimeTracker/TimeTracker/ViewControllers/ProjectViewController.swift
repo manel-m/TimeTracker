@@ -23,7 +23,6 @@ class ProjectViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar.title = projectName
-        print(projectName)
     }
     
     
@@ -60,7 +59,10 @@ class ProjectViewController : UIViewController {
         task.creationDate = Date ()
         task.duration = duration
         task.project = project
+        project?.totalDuration += duration
         try? dataController.viewContext.save()
+        
+        
     }
 
     

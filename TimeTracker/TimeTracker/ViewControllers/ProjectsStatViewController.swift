@@ -58,6 +58,11 @@ class ProjectsStatViewController : UITableViewController , NSFetchedResultsContr
         
         // Set the name
         cell.textLabel?.text = aProject.name
+        // Set the duration
+        if let detailTextLabel = cell.detailTextLabel {
+            detailTextLabel.text = String(aProject.totalDuration)
+            
+        }
 //        cell.imageView?.image = UIImage(named: villain.imageName)
         
         // If the cell has a detail label, we will put the evil scheme in.

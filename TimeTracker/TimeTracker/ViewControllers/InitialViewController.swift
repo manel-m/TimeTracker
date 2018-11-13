@@ -63,6 +63,7 @@ class InitialViewController: UIViewController {
         let project = Project(context: dataController.viewContext)
         project.creationDate = Date()
         project.name = nameProject
+        project.totalDuration = 0
         try? dataController.viewContext.save()
         return project
     }
