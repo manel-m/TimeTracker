@@ -118,8 +118,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="GoalsButton:" destination="aH1-yi-LaW" eventType="touchUpInside" id="xdG-lD-5eE"/>
-                                    <segue destination="jmg-7X-MUa" kind="show" id="MrX-qu-ncp"/>
+                                    <segue destination="jmg-7X-MUa" kind="show" id="NRi-tx-box"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXA-kN-gvH">
@@ -160,7 +159,7 @@
                             <constraint firstItem="LSW-YD-xZN" firstAttribute="top" secondItem="mTO-6K-c5t" secondAttribute="bottom" constant="166" id="02k-8y-KqA"/>
                             <constraint firstItem="VXA-kN-gvH" firstAttribute="baseline" secondItem="cTf-jB-zso" secondAttribute="baseline" id="1lt-hC-GfM"/>
                             <constraint firstItem="vs9-Go-xL6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mTO-6K-c5t" secondAttribute="trailing" id="2wU-M7-MeG"/>
-                            <constraint firstItem="vs9-Go-xL6" firstAttribute="trailing" secondItem="mTO-6K-c5t" secondAttribute="trailing" constant="158" id="41M-nP-PNh"/>
+                            <constraint firstItem="vs9-Go-xL6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mTO-6K-c5t" secondAttribute="trailing" id="41M-nP-PNh"/>
                             <constraint firstItem="LSW-YD-xZN" firstAttribute="trailing" secondItem="1EB-cj-4Rv" secondAttribute="trailingMargin" id="569-HJ-2kq"/>
                             <constraint firstAttribute="trailing" secondItem="GpA-Yo-1eg" secondAttribute="trailing" constant="163" id="5LC-Gq-I8E"/>
                             <constraint firstItem="mTO-6K-c5t" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="157" id="CDO-dM-BdG"/>
@@ -192,7 +191,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="zRa-b8-iu3">
             <objects>
-                <tabBarController id="8Vr-XZ-C4w" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="8Vr-XZ-C4w" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GjJ-G3-Rzq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

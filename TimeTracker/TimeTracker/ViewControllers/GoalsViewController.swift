@@ -23,9 +23,29 @@ class GoalsViewController : UIViewController {
         goal.project = project
         goal.dailyGoal = Int32(dailyTextField.text!)!
         goal.weeklyGoal = Int32(weeklyTextField.text!)!
+        try? dataController.viewContext.save()
 }
     
     @IBAction func DoneButton(_ sender: UIButton) {
         saveGoal()
+//        let tabBarController = self.storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+//
+//
+//        self.present(tabBarController, animated: true, completion: nil)
+        
+        
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? UITabBarController {
+            if let vc0 = vc.viewControllers![0] as? ProjectsStatViewController {
+                vc0.dataController = dataController
+                vc0.project = project
+            }
+            if let vc1 = vc.viewControllers![1] as? GoalsStatViewController {
+                vc1.dataController = dataController
+                vc1.project = project
+            }
+        }
+    }
+    
 }

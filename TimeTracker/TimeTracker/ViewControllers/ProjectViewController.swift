@@ -40,17 +40,14 @@ class ProjectViewController : UIViewController {
         let duration = Int(timeLabel.text!)
         addTask(duration:Int32(duration!) )
         time = 0
-        timeLabel.text = String(time)
-        
+        timeLabel.text = "0"//String(time)
     }
     
-    @IBAction func GoalsButton(_ sender: UIButton) {
-      //prepare(for: <#T##UIStoryboardSegue#>, sender: <#T##Any?#>)
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? GoalsViewController {
             vc.dataController = dataController
             vc.project = project
+            print("goals button segue")
         }
     }
     @objc func Action (){

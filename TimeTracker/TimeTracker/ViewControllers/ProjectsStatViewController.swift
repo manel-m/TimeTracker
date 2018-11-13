@@ -8,19 +8,56 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class ProjectsStatViewController : UITableViewController {
+class ProjectsStatViewController : UITableViewController , NSFetchedResultsControllerDelegate  {
+    
+    var project: Project?
+    var dataController: DataController!
+    var fetchedResultsController: NSFetchedResultsController<Project>!
+    
+    fileprivate func setUpFetchedResultsController() {
+        let fetchRequest: NSFetchRequest<Project> = Project.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key : "creationDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch cannot be perfrmed: \(error.localizedDescription)")
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUpFetchedResultsController()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        fetchedResultsController = nil
+        print("will disappear")
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if let sections = fetchedResultsController.sections{
+            return sections.count
+        } else {
+            return 1
+        }
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let aProject = fetchedResultsController.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell")!
-//        let villain = self.allVillains[(indexPath as NSIndexPath).row]
         
-        // Set the name and image
-//        cell.textLabel?.text = villain.name
+        // Set the name
+        cell.textLabel?.text = aProject.name
 //        cell.imageView?.image = UIImage(named: villain.imageName)
         
         // If the cell has a detail label, we will put the evil scheme in.
