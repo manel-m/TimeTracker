@@ -61,15 +61,20 @@ class ProjectsStatViewController : UITableViewController , NSFetchedResultsContr
         // Set the duration
         if let detailTextLabel = cell.detailTextLabel {
             detailTextLabel.text = String(aProject.totalDuration)
-            
         }
-//        cell.imageView?.image = UIImage(named: villain.imageName)
-        
-        // If the cell has a detail label, we will put the evil scheme in.
-//        if let detailTextLabel = cell.detailTextLabel {
-//            detailTextLabel.text = "Scheme: \(villain.evilScheme)"
-        
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let aProject = fetchedResultsController.object(at: indexPath)
+
+        let projectController = self.storyboard!.instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
+        projectController.dataController = dataController
+        projectController.project = aProject
+        self.present(projectController, animated: true, completion: nil)
+        
+//        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "VillainDetailViewController") as! VillainDetailViewController
+//        detailController.villain = self.allVillains[(indexPath as NSIndexPath).row]
+//        self.navigationController!.pushViewController(detailController, animated: true)
     }
 }
     

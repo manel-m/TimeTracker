@@ -41,14 +41,32 @@ class ProjectViewController : UIViewController {
         time = 0
         timeLabel.text = "0"//String(time)
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? UITabBarController {
+            if let vc0 = vc.viewControllers![0] as? ProjectsStatViewController {
+                vc0.dataController = dataController
+                //vc0.project = project
+            }
+            if let vc1 = vc.viewControllers![1] as? GoalsStatViewController {
+                vc1.dataController = dataController
+                //vc1.project = project
+            }
+        }
         if let vc = segue.destination as? GoalsViewController {
             vc.dataController = dataController
             vc.project = project
             print("goals button segue")
         }
     }
+    
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let vc = segue.destination as? GoalsViewController {
+//            vc.dataController = dataController
+//            vc.project = project
+//            print("goals button segue")
+//        }
+//    }
     @objc func Action (){
         time += 1
         timeLabel.text = String(time)

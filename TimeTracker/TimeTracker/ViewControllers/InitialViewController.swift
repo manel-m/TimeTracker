@@ -22,6 +22,18 @@ class InitialViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? UITabBarController {
+            if let vc0 = vc.viewControllers![0] as? ProjectsStatViewController {
+                vc0.dataController = dataController
+                //vc0.project = project
+            }
+            if let vc1 = vc.viewControllers![1] as? GoalsStatViewController {
+                vc1.dataController = dataController
+                //vc1.project = project
+            }
+        }
+    }
     
     @IBAction func addTapped(_ sender: Any) {
         newProjectAlert()
