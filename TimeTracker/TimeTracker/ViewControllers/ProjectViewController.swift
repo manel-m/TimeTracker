@@ -14,7 +14,6 @@ class ProjectViewController : UIViewController {
     var projectName : String! = ""
     var project: Project?
     var time = 0
-    // timer
     var timer = Timer()
     
     

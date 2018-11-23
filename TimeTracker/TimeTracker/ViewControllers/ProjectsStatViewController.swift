@@ -72,9 +72,6 @@ class ProjectsStatViewController : UITableViewController , NSFetchedResultsContr
         projectController.project = aProject
         self.present(projectController, animated: true, completion: nil)
         
-//        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "VillainDetailViewController") as! VillainDetailViewController
-//        detailController.villain = self.allVillains[(indexPath as NSIndexPath).row]
-//        self.navigationController!.pushViewController(detailController, animated: true)
     }
 }
     
