@@ -54,9 +54,13 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
         // Set the name
         cell.textLabel?.text = aProject.name
         // Set the goal
-//        if let detailTextLabel = cell.detailTextLabel {
-//            detailTextLabel.text = String(aProject.goal!.dailyGoal)
-//        }
+        if let detailTextLabel = cell.detailTextLabel {
+            if let goal = aProject.goal {
+                detailTextLabel.text = String(goal.dailyGoal)
+            } else {
+                detailTextLabel.text = "N/A"
+            }
+        }
         
         
         return cell
