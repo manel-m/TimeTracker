@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71B1D154E83A76151A776739 /* Pods_TimeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395BEEDF0310E0D4D2A62365 /* Pods_TimeTracker.framework */; };
 		99146AD8217ED7FD009D7D6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99146AD7217ED7FD009D7D6D /* AppDelegate.swift */; };
 		99146ADA217ED7FD009D7D6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99146AD9217ED7FD009D7D6D /* InitialViewController.swift */; };
 		99146ADD217ED7FD009D7D6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99146ADB217ED7FD009D7D6D /* Main.storyboard */; };
@@ -18,9 +19,13 @@
 		99146AF62189692F009D7D6D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99146AF52189692F009D7D6D /* DataController.swift */; };
 		992A4723218D4FB400455C87 /* ProjectsStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992A4722218D4FB400455C87 /* ProjectsStatViewController.swift */; };
 		992A4725218D504500455C87 /* GoalsStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992A4724218D504500455C87 /* GoalsStatViewController.swift */; };
+		998F805A21AFC23900B19208 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 998F805921AFC23800B19208 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		395BEEDF0310E0D4D2A62365 /* Pods_TimeTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		550A5DFF0103A3039CFF07D3 /* Pods-TimeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTracker/Pods-TimeTracker.release.xcconfig"; sourceTree = "<group>"; };
+		5B6F2F1D2B0FBF00FE1EC204 /* Pods-TimeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTracker/Pods-TimeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		99146AD4217ED7FD009D7D6D /* TimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99146AD7217ED7FD009D7D6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99146AD9217ED7FD009D7D6D /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		99146AF52189692F009D7D6D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		992A4722218D4FB400455C87 /* ProjectsStatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsStatViewController.swift; sourceTree = "<group>"; };
 		992A4724218D504500455C87 /* GoalsStatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsStatViewController.swift; sourceTree = "<group>"; };
+		998F805921AFC23800B19208 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B1D154E83A76151A776739 /* Pods_TimeTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7362F201830901455F2E82A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				395BEEDF0310E0D4D2A62365 /* Pods_TimeTracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		99146ACB217ED7FD009D7D6D = {
 			isa = PBXGroup;
 			children = (
 				99146AD6217ED7FD009D7D6D /* TimeTracker */,
 				99146AD5217ED7FD009D7D6D /* Products */,
+				C6E59E0A45D4EC74D84C7605 /* Pods */,
+				7362F201830901455F2E82A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +89,7 @@
 				99146ADB217ED7FD009D7D6D /* Main.storyboard */,
 				99146AE1217ED7FD009D7D6D /* Assets.xcassets */,
 				99146AE3217ED7FD009D7D6D /* LaunchScreen.storyboard */,
+				998F805921AFC23800B19208 /* GoogleService-Info.plist */,
 				99146AE6217ED7FD009D7D6D /* Info.plist */,
 			);
 			path = TimeTracker;
@@ -98,6 +116,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C6E59E0A45D4EC74D84C7605 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B6F2F1D2B0FBF00FE1EC204 /* Pods-TimeTracker.debug.xcconfig */,
+				550A5DFF0103A3039CFF07D3 /* Pods-TimeTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99146AE9217ED7FD009D7D6D /* Build configuration list for PBXNativeTarget "TimeTracker" */;
 			buildPhases = (
+				657F08C85901533CCA4E52FB /* [CP] Check Pods Manifest.lock */,
 				99146AD0217ED7FD009D7D6D /* Sources */,
 				99146AD1217ED7FD009D7D6D /* Frameworks */,
 				99146AD2217ED7FD009D7D6D /* Resources */,
+				1272029C8BF57A93AD3A70D7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,12 +187,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				99146AE5217ED7FD009D7D6D /* LaunchScreen.storyboard in Resources */,
+				998F805A21AFC23900B19208 /* GoogleService-Info.plist in Resources */,
 				99146AE2217ED7FD009D7D6D /* Assets.xcassets in Resources */,
 				99146ADD217ED7FD009D7D6D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1272029C8BF57A93AD3A70D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TimeTracker/Pods-TimeTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeTracker/Pods-TimeTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		657F08C85901533CCA4E52FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TimeTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		99146AD0217ED7FD009D7D6D /* Sources */ = {
@@ -312,6 +383,7 @@
 		};
 		99146AEA217ED7FD009D7D6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B6F2F1D2B0FBF00FE1EC204 /* Pods-TimeTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -327,6 +399,7 @@
 		};
 		99146AEB217ED7FD009D7D6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 550A5DFF0103A3039CFF07D3 /* Pods-TimeTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
