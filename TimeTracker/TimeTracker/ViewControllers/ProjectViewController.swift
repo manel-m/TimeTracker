@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 import CoreData
+import Firebase
+import FirebaseDatabase
+
 class ProjectViewController : UIViewController {
+    
+    var db: DatabaseReference!
     var dataController:DataController!
     var projectName : String! = ""
     var project: Project?
@@ -22,8 +27,8 @@ class ProjectViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar.title = projectName
+        db = Database.database().reference(withPath: "project-list")
     }
-    
     
     @IBAction func StartTimer(_ sender: UIButton) {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ProjectViewController.Action), userInfo: nil, repeats: true)
@@ -58,14 +63,6 @@ class ProjectViewController : UIViewController {
         }
     }
     
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let vc = segue.destination as? GoalsViewController {
-//            vc.dataController = dataController
-//            vc.project = project
-//            print("goals button segue")
-//        }
-//    }
     @objc func Action (){
         time += 1
         timeLabel.text = String(time)
@@ -78,6 +75,18 @@ class ProjectViewController : UIViewController {
         task.project = project
         project?.totalDuration += duration
         try? dataController.viewContext.save()
+        
+        let projectRef = self.db.child(project!.name!.lowercased())
+        
+        projectRef.observe(.value, with: { snapshot in
+            print("project \(snapshot.value)")
+        })
+
+        projectRef.setValue([
+            "name": project!.name!,
+            "total_duration": project!.totalDuration
+            ])
+        
         
         
     }

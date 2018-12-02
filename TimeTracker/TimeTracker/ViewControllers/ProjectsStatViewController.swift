@@ -9,13 +9,16 @@
 import Foundation
 import UIKit
 import CoreData
+//import Firebase
+//import FirebaseDatabase
 
 class ProjectsStatViewController : UITableViewController , NSFetchedResultsControllerDelegate  {
     
-    var project: Project?
+    //var project: Project?
     var dataController: DataController!
     var fetchedResultsController: NSFetchedResultsController<Project>!
-    
+    //let ref = Database.database().reference(withPath: "project-list")
+
     fileprivate func setUpFetchedResultsController() {
         let fetchRequest: NSFetchRequest<Project> = Project.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key : "creationDate", ascending: false)

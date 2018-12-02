@@ -8,13 +8,18 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FirebaseDatabase
 
 class InitialViewController: UIViewController {
+
+    var db: DatabaseReference!
 
     var dataController:DataController!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        db = Database.database().reference(withPath: "project-list")
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,6 +82,13 @@ class InitialViewController: UIViewController {
         project.name = nameProject
         project.totalDuration = 0
         try? dataController.viewContext.save()
+        
+        let projectRef = self.db.child(nameProject.lowercased())
+        projectRef.setValue([
+            "name": nameProject,
+            "total_duration": project.totalDuration
+        ])
+        
         return project
     }
 
