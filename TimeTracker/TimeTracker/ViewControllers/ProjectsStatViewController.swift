@@ -9,71 +9,75 @@
 import Foundation
 import UIKit
 import CoreData
-//import Firebase
-//import FirebaseDatabase
+import Firebase
+import FirebaseDatabase
 
-class ProjectsStatViewController : UITableViewController , NSFetchedResultsControllerDelegate  {
+class ProjectsStatViewController : UITableViewController {
     
-    //var project: Project?
     var dataController: DataController!
-    var fetchedResultsController: NSFetchedResultsController<Project>!
-    //let ref = Database.database().reference(withPath: "project-list")
-
-    fileprivate func setUpFetchedResultsController() {
-        let fetchRequest: NSFetchRequest<Project> = Project.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key : "creationDate", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController.delegate = self
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("The fetch cannot be perfrmed: \(error.localizedDescription)")
-        }
-    }
+    var items: [ProjectItem] = []
+    
+    let ref = Database.database().reference(withPath: "project-list")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpFetchedResultsController()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        fetchedResultsController = nil
-        print("will disappear")
+        // 1
+        ref.observe(.value, with: { snapshot in
+            print("snapshot observed")
+            // 2
+            var newItems: [ProjectItem] = []
+            
+            // 3
+            for child in snapshot.children {
+                // 4
+                if let snapshot = child as? DataSnapshot,
+                    let projectItem = ProjectItem(snapshot: snapshot) {
+                    print("projectItem(\(projectItem.name), \(projectItem.totalDuration))")
+                    newItems.append(projectItem)
+                }
+            }
+            
+            // 5
+            self.items = newItems
+            self.tableView.reloadData()
+        })
+
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if let sections = fetchedResultsController.sections{
-            return sections.count
-        } else {
             return 1
-        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return items.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let aProject = fetchedResultsController.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell")!
-        
-        // Set the name
-        cell.textLabel?.text = aProject.name
-        // Set the duration
+       let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath)
+        let projectItem = items[indexPath.row]
+//        print("display projectItem(\(projectItem.name), \(projectItem.totalDuration))")
+        cell.textLabel?.text = projectItem.name
         if let detailTextLabel = cell.detailTextLabel {
-            detailTextLabel.text = String(aProject.totalDuration)
-        }
+            detailTextLabel.text = String(projectItem.totalDuration)
+                    }
         return cell
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let aProject = fetchedResultsController.object(at: indexPath)
 
-        let projectController = self.storyboard!.instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
-        projectController.dataController = dataController
-        projectController.project = aProject
-        self.present(projectController, animated: true, completion: nil)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        let aProject = fetchedResultsController.object(at: indexPath)
+        let projectItem = items[indexPath.row]
+        
+        let fetchRequest:NSFetchRequest<Project> = Project.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format:"name == %@", projectItem.name)
+        if let result = try? dataController.viewContext.fetch(fetchRequest) {
+
+            let projectController = self.storyboard!.instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
+            projectController.dataController = dataController
+            projectController.project = result[0]
+            self.present(projectController, animated: true, completion: nil)
+
+        } // handle fetch error
+        
         
     }
 }

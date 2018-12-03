@@ -79,7 +79,7 @@ class ProjectViewController : UIViewController {
         let projectRef = self.db.child(project!.name!.lowercased())
         
         projectRef.observe(.value, with: { snapshot in
-            print("project \(snapshot.value)")
+            print("project \(snapshot.value ?? nil)")
         })
 
         projectRef.setValue([
