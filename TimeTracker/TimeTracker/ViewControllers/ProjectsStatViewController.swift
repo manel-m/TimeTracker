@@ -76,7 +76,7 @@ class ProjectsStatViewController : UITableViewController {
             projectController.project = result[0]
             self.present(projectController, animated: true, completion: nil)
 
-        } // handle fetch error
+        } // handle fetch error 
         
         
     }

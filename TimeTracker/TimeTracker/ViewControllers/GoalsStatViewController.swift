@@ -11,7 +11,7 @@ import  UIKit
 import CoreData
 class GoalsStatViewController: UITableViewController , NSFetchedResultsControllerDelegate {
     
-    var project: Project?
+//    var project: Project?
     var dataController: DataController!
     var fetchedResultsController: NSFetchedResultsController<Project>!
     
@@ -64,6 +64,18 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
         
         
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let aProject = fetchedResultsController.object(at: indexPath)
+
+        let projectController = self.storyboard!.instantiateViewController(withIdentifier: "GoalsViewController") as! GoalsViewController
+        projectController.dataController = dataController
+        projectController.project = aProject
+        self.navigationController!.pushViewController(projectController, animated: true)
+
+//        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
+//        self.navigationController!.pushViewController(detailController, animated: true)
+        
     }
 }
 

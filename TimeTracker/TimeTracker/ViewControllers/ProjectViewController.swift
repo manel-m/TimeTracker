@@ -86,8 +86,7 @@ class ProjectViewController : UIViewController {
             "name": project!.name!,
             "total_duration": project!.totalDuration
             ])
-        
-        
+    
         
     }
 
