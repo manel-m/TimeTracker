@@ -204,6 +204,9 @@
                     <navigationItem key="navigationItem" id="Zcl-u7-rCk" userLabel="project Name"/>
                     <connections>
                         <outlet property="navBar" destination="Zcl-u7-rCk" id="Y5c-c8-QUR"/>
+                        <outlet property="pauseButton" destination="GpA-Yo-1eg" id="3NH-3v-F42"/>
+                        <outlet property="startButton" destination="VXA-kN-gvH" id="cBN-zV-Ugj"/>
+                        <outlet property="stopButton" destination="cTf-jB-zso" id="g39-Pc-bZg"/>
                         <outlet property="timeLabel" destination="mTO-6K-c5t" id="5eC-we-7US"/>
                     </connections>
                 </viewController>
@@ -377,6 +380,6 @@
         <image name="TimeTracker" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mt8-KW-E04"/>
+        <segue reference="A2x-ub-WaT"/>
     </inferredMetricsTieBreakers>
 </document>

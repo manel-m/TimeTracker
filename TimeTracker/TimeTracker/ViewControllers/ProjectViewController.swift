@@ -24,6 +24,10 @@ class ProjectViewController : UIViewController {
     
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar.title = projectName
@@ -32,13 +36,17 @@ class ProjectViewController : UIViewController {
     
     @IBAction func StartTimer(_ sender: UIButton) {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ProjectViewController.Action), userInfo: nil, repeats: true)
+        startButton.isEnabled = false
+        
         //scheduledTimer
     }
     
     @IBAction func PauseTimer(_ sender: UIButton) {
         timer.invalidate()
+        startButton.isEnabled = true
     }
     @IBAction func StopTimer(_ sender: UIButton) {
+        startButton.isEnabled = true
         timer.invalidate()
         addTask(duration:Int32(time) )
         time = 0
