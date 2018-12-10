@@ -14,11 +14,14 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    // DataController property
     let dataController = DataController(modelName: "TimeTracker")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // connect Firebase 
         FirebaseApp.configure()
-
+        // load the persistent store
         dataController.load()
 
         let navigationController = window?.rootViewController as! UINavigationController

@@ -10,16 +10,19 @@ import Foundation
 import CoreData
 class DataController {
     
+    
+    
     let persistentContainer :NSPersistentContainer
+    // access the context
     var viewContext: NSManagedObjectContext{
         return persistentContainer.viewContext
     }
-    
+    // hold a persistent container instance
     init(modelName: String) {
         persistentContainer = NSPersistentContainer(name: modelName)
         
     }
-    
+    // load the persistent store
     func load (completion: (() -> Void )? = nil) {
         persistentContainer.loadPersistentStores { storeDescription, Error in
             guard Error == nil else {

@@ -12,47 +12,52 @@ import Firebase
 import FirebaseDatabase
 
 class InitialViewController: UIViewController {
-
+    
+    //FirebaseDatabase
     var db: DatabaseReference!
-
+    // DataController property
     var dataController:DataController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // creat a Connection to Firebase
         db = Database.database().reference(withPath: "project-list")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    // add segue to Tab Bar Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? UITabBarController {
+            // segue to ProjectsStatViewController
             if let vc0 = vc.viewControllers![0] as? ProjectsStatViewController {
                 vc0.dataController = dataController
-                //vc0.project = project
             }
+            // segue to GoalsStatViewController
             if let vc1 = vc.viewControllers![1] as? GoalsStatViewController {
                 vc1.dataController = dataController
-                //vc1.project = project
             }
         }
     }
     
+    // action to new project button
     @IBAction func addTapped(_ sender: Any) {
         newProjectAlert()
     }
     
     func newProjectAlert() {
+        // create an alert
         let alert = UIAlertController(title: "New Project", message: "Enter a name for new Project", preferredStyle: .alert)
         // Create actions
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            
             if let name = alert.textFields?.first?.text {
                 let project = self.addProject(nameProject : name)
                 let projectVC = self.storyboard?.instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
-                projectVC.projectName = name
+                // passing project and dataController to the next viewController
                 projectVC.project = project
                 projectVC.dataController = self.dataController
                 self.navigationController?.pushViewController(projectVC, animated: true)
@@ -76,6 +81,7 @@ class InitialViewController: UIViewController {
         alert.addAction(saveAction)
         present(alert, animated: true, completion: nil)
     }
+    // add project to persistent store
     func addProject (nameProject : String)-> Project {
         let project = Project(context: dataController.viewContext)
         project.creationDate = Date()
@@ -83,7 +89,9 @@ class InitialViewController: UIViewController {
         project.totalDuration = 0
         try? dataController.viewContext.save()
         
+        // add project to FireBase
         let projectRef = self.db.child(nameProject.lowercased())
+        // save data to the database.
         projectRef.setValue([
             "name": nameProject,
             "total_duration": project.totalDuration
@@ -91,7 +99,6 @@ class InitialViewController: UIViewController {
         
         return project
     }
-
 
 }
 

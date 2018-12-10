@@ -26,7 +26,13 @@ class GoalsViewController : UIViewController {
 }
     
     @IBAction func DoneButton(_ sender: UIButton) {
-        saveGoal()
+        let dailyGoal = dailyTextField.text
+        if (dailyGoal?.isEmpty)!  {
+            self.displayError("Empty Daily Goal")
+        } else {
+            saveGoal()
+        }
+        
 
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,4 +46,9 @@ class GoalsViewController : UIViewController {
         }
     }
     
+    func displayError(_ error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
