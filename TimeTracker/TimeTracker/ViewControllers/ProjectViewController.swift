@@ -42,7 +42,8 @@ class ProjectViewController : UIViewController {
         timer.invalidate()
         addTask(duration:Int32(time) )
         time = 0
-        timeLabel.text = "0"//String(time)
+        //timeLabel.text = String(time) //"0"
+        timeLabel.text = timeDisplay(time: Int32(time))
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? UITabBarController {
@@ -64,9 +65,18 @@ class ProjectViewController : UIViewController {
     
     @objc func Action (){
         time += 1
+        timeLabel.text = timeDisplay(time: Int32(time))
+        
+//        let seconds = time % 60
+//        let minutes = time / 60
+//        timeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+    }
+    func timeDisplay (time : Int32)-> String {
         let seconds = time % 60
         let minutes = time / 60
-        timeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+        let result = String(format: "%02d:%02d", minutes, seconds)
+        
+        return result
     }
     
     func addTask (duration : Int32) {

@@ -19,6 +19,14 @@ class ProjectsStatViewController : UITableViewController {
     
     let ref = Database.database().reference(withPath: "project-list")
     
+    func timeDisplay (time : Int32)-> String {
+        let seconds = time % 60
+        let minutes = time / 60
+        let result = String(format: "%02d:%02d", minutes, seconds)
+        
+        return result
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 1
@@ -57,7 +65,8 @@ class ProjectsStatViewController : UITableViewController {
 //        print("display projectItem(\(projectItem.name), \(projectItem.totalDuration))")
         cell.textLabel?.text = projectItem.name
         if let detailTextLabel = cell.detailTextLabel {
-            detailTextLabel.text = String(projectItem.totalDuration)
+            detailTextLabel.text = timeDisplay(time: projectItem.totalDuration)
+            //String(projectItem.totalDuration)
                     }
         return cell
     }

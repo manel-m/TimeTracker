@@ -36,6 +36,13 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
             fatalError("The fetch cannot be perfrmed: \(error.localizedDescription)")
         }
     }
+    func timeDisplay (time : Int32)-> String {
+        let seconds = time % 60
+        let minutes = time / 60
+        let result = String(format: "%02d:%02d", minutes, seconds)
+        
+        return result
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = fetchedResultsController.sections{
@@ -56,7 +63,8 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
         // Set the goal
         if let detailTextLabel = cell.detailTextLabel {
             if let goal = aProject.goal {
-                detailTextLabel.text = String(goal.dailyGoal)
+                let goalMinute = (goal.dailyGoal)*60
+                detailTextLabel.text = timeDisplay(time:goalMinute)
             } else {
                 detailTextLabel.text = "N/A"
             }
@@ -72,9 +80,6 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
         projectController.dataController = dataController
         projectController.project = aProject
         self.navigationController!.pushViewController(projectController, animated: true)
-
-//        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
-//        self.navigationController!.pushViewController(detailController, animated: true)
         
     }
 }
