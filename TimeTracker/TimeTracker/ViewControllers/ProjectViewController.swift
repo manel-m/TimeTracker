@@ -40,8 +40,7 @@ class ProjectViewController : UIViewController {
     }
     @IBAction func StopTimer(_ sender: UIButton) {
         timer.invalidate()
-        let duration = Int(timeLabel.text!)
-        addTask(duration:Int32(duration!) )
+        addTask(duration:Int32(time) )
         time = 0
         timeLabel.text = "0"//String(time)
     }
@@ -65,7 +64,9 @@ class ProjectViewController : UIViewController {
     
     @objc func Action (){
         time += 1
-        timeLabel.text = String(time)
+        let seconds = time % 60
+        let minutes = time / 60
+        timeLabel.text = String(format: "%02d:%02d", minutes, seconds)
     }
     
     func addTask (duration : Int32) {
