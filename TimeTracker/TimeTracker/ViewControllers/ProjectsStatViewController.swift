@@ -21,8 +21,9 @@ class ProjectsStatViewController : UITableViewController {
     
     func timeDisplay (time : Int32)-> String {
         let seconds = time % 60
-        let minutes = time / 60
-        let result = String(format: "%02d:%02d", minutes, seconds)
+        let minutes = (time / 60) % 60
+        let hour = time / 3600
+        let result = String(format: "%02d:%02d:%02d",hour, minutes, seconds)
         
         return result
     }
