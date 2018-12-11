@@ -30,6 +30,10 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpFetchedResultsController()
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            tableView.deselectRow(at: indexPath, animated: false)
+//            tableView.reloadRows(at: [indexPath], with: .fade)
+//        }
     }
 
     fileprivate func setUpFetchedResultsController() {
@@ -53,14 +57,16 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
         
         return result
     }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if let sections = fetchedResultsController.sections{
-            return sections.count
-        } else {
-            return 1
-        }
+        return fetchedResultsController.sections?.count ?? 1
     }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        if let sections = fetchedResultsController.sections{
+//            return sections.count
+//        } else {
+//            return 1
+//        }
+//    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
@@ -109,6 +115,8 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
         let projectToDelete = fetchedResultsController.object(at: indexPath)
         dataController.viewContext.delete(projectToDelete)
         try? dataController.viewContext.save()
+        //tableView.reloadData()
+        
     }
 }
 

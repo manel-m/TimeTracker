@@ -21,6 +21,9 @@ class ProjectsStatViewController : UITableViewController {
     // creat a Connection to Firebase
     let ref = Database.database().reference(withPath: "project-list")
     
+    // create activity indicators
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     // function to convert seconds to minutes and hours
     func timeDisplay (time : Int32)-> String {
         let seconds = time % 60
@@ -33,6 +36,13 @@ class ProjectsStatViewController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // dedails of activity indicator
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        // start activity indicator
+        activityIndicator.startAnimating()
         // retrieve data in Firebase
         ref.observe(.value, with: { snapshot in
             //Store the latest version of the data in a local variable
@@ -50,6 +60,7 @@ class ProjectsStatViewController : UITableViewController {
             self.items = newItems
             // reload the table view
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
         })
 
     }
