@@ -16,7 +16,7 @@ class ProjectViewController : UIViewController {
     
     //FirebaseDatabase
     var db: DatabaseReference!
-    // DataController property
+    //  Core Data Controller
     var dataController:DataController!
     var project: Project?
     var time = 0
@@ -55,14 +55,6 @@ class ProjectViewController : UIViewController {
     }
     // add segue to Tab Bar Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let vc = segue.destination as? UITabBarController {
-//            if let vc0 = vc.viewControllers![0] as? ProjectsStatViewController {
-//                vc0.dataController = dataController
-//            }
-//            if let vc1 = vc.viewControllers![1] as? GoalsStatViewController {
-//                vc1.dataController = dataController
-//            }
-//        }
         if let vc = segue.destination as? GoalsViewController {
             vc.dataController = dataController
             vc.project = project

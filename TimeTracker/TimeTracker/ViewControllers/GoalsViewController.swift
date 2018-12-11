@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 class GoalsViewController : UIViewController {
     
-    // DataController property
+    //  Core Data Controller
     var dataController:DataController!
     var project: Project?
     
@@ -36,18 +36,6 @@ class GoalsViewController : UIViewController {
             self.displayError("Invalid Input")
         }
     }
-    
-    // add segue to Tab Bar Controller
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let vc = segue.destination as? UITabBarController {
-//            if let vc0 = vc.viewControllers![0] as? ProjectsStatViewController {
-//                vc0.dataController = dataController
-//            }
-//            if let vc1 = vc.viewControllers![1] as? GoalsStatViewController {
-//                vc1.dataController = dataController
-//            }
-//        }
-//    }
     
     func displayError(_ error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)

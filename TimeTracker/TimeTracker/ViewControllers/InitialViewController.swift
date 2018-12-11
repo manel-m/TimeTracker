@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 class InitialViewController: UIViewController {
     
-    //FirebaseDatabase
+    //Firebase Database
     var db: DatabaseReference!
     // Core Data Controller
     var dataController:DataController!

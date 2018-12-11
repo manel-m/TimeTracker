@@ -11,7 +11,7 @@ import  UIKit
 import CoreData
 class GoalsStatViewController: UITableViewController , NSFetchedResultsControllerDelegate {
     
-    // DataController property
+    //  Core Data Controller
     var dataController: DataController!
     // add fetch results controller
     var fetchedResultsController: NSFetchedResultsController<Project>!

@@ -14,7 +14,7 @@ import FirebaseDatabase
 
 class ProjectsStatViewController : UITableViewController {
     
-    // DataController property
+    //  Core Data Controller
     var dataController: DataController!
     var items: [ProjectItem] = []
     
