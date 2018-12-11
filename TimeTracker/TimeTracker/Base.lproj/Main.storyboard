@@ -309,24 +309,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dd-b7-pRA">
-                                <rect key="frame" x="196" y="172" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Daily Goals (Minutes)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cc-Dz-Ea6">
-                                <rect key="frame" x="25" y="165" width="144" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVD-y3-0fP">
-                                <rect key="frame" x="134" y="373" width="107" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVD-y3-0fP">
+                                <rect key="frame" x="134" y="378.5" width="107" height="30"/>
                                 <color key="backgroundColor" red="0.12941176470588234" green="0.75294117647058822" blue="0.9836958646774292" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="HfS-UX-qBA"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Ysd-tq-3lw"/>
+                                    <constraint firstAttribute="width" constant="107" id="hsD-jg-ge5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -335,8 +325,35 @@
                                     <action selector="DoneButton:" destination="jmg-7X-MUa" eventType="touchUpInside" id="TaK-Aw-mIm"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dd-b7-pRA">
+                                <rect key="frame" x="134" y="318.5" width="107" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bat-Fz-Wsg"/>
+                                    <constraint firstAttribute="width" constant="107" id="lWi-5W-eS8"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Goals (Minutes):" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cc-Dz-Ea6">
+                                <rect key="frame" x="96.5" y="279" width="182" height="19.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="182" id="lPM-Wr-9zg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8dd-b7-pRA" firstAttribute="centerY" secondItem="UbL-nh-Xgc" secondAttribute="centerY" id="YIp-eO-guU"/>
+                            <constraint firstItem="OVD-y3-0fP" firstAttribute="top" secondItem="8dd-b7-pRA" secondAttribute="bottom" constant="30" id="cFQ-Po-mE5"/>
+                            <constraint firstItem="0cc-Dz-Ea6" firstAttribute="centerX" secondItem="UbL-nh-Xgc" secondAttribute="centerX" id="dGI-VQ-sXp"/>
+                            <constraint firstItem="8dd-b7-pRA" firstAttribute="centerX" secondItem="UbL-nh-Xgc" secondAttribute="centerX" id="fmZ-sF-URs"/>
+                            <constraint firstItem="OVD-y3-0fP" firstAttribute="centerX" secondItem="UbL-nh-Xgc" secondAttribute="centerX" id="n2s-j3-Jmk"/>
+                            <constraint firstItem="8dd-b7-pRA" firstAttribute="top" secondItem="0cc-Dz-Ea6" secondAttribute="bottom" constant="20" id="zbc-cU-8b5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5Qj-70-B23"/>
                     </view>
                     <connections>
