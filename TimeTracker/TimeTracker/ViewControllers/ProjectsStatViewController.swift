@@ -83,7 +83,6 @@ class ProjectsStatViewController : UITableViewController {
             projectController.dataController = dataController
             projectController.project = result[0]
             self.navigationController!.pushViewController(projectController, animated: true)
-
         } 
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

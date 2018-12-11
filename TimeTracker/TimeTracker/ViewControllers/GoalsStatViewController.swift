@@ -91,5 +91,24 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
         self.navigationController!.pushViewController(projectController, animated: true)
         
     }
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            let projectToDelete = fetchedResultsController.object(at: indexPath)
+//            dataController.viewContext.delete(projectToDelete)
+//            try? dataController.viewContext.save()
+//        }
+//    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete: deleteProject(at: indexPath)
+        default: ()
+        }
+    }
+    // Delete the project at the specified index path
+    func deleteProject(at indexPath: IndexPath) {
+        let projectToDelete = fetchedResultsController.object(at: indexPath)
+        dataController.viewContext.delete(projectToDelete)
+        try? dataController.viewContext.save()
+    }
 }
 
