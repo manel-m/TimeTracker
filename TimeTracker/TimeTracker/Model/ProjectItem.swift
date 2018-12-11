@@ -10,10 +10,12 @@ import Foundation
 import Firebase
 
 struct ProjectItem {
+    let ref: DatabaseReference?
     let name: String
     let totalDuration: Int32
     
     init(name: String, totalDuration: Int32) {
+        self.ref = nil
         self.name = name
         self.totalDuration = totalDuration
     }
@@ -25,7 +27,7 @@ struct ProjectItem {
             let totalDuration = value["total_duration"] as? Int32 else {
             return nil
         }
-        
+        self.ref = snapshot.ref
         self.name = name
         self.totalDuration = totalDuration
     }

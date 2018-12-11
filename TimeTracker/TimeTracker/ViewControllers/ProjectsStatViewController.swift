@@ -35,7 +35,6 @@ class ProjectsStatViewController : UITableViewController {
         super.viewDidLoad()
         // retrieve data in Firebase
         ref.observe(.value, with: { snapshot in
-            print("snapshot observed")
             //Store the latest version of the data in a local variable
             var newItems: [ProjectItem] = []
             
@@ -86,6 +85,12 @@ class ProjectsStatViewController : UITableViewController {
             self.navigationController!.pushViewController(projectController, animated: true)
 
         } 
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let projectItem = items[indexPath.row]
+            projectItem.ref?.removeValue()
+        }
     }
 }
     
