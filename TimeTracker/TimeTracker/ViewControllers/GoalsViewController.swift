@@ -10,41 +10,44 @@ import Foundation
 import UIKit
 class GoalsViewController : UIViewController {
     
+    // DataController property
     var dataController:DataController!
     var project: Project?
     
     @IBOutlet weak var dailyTextField: UITextField!
     
-    //@IBOutlet weak var weeklyTextField: UITextField!
-    
-    func saveGoal () {
+   //  add Goal to persistent store
+    func saveGoal (_ dailyGoal: Int32) {
         let goal = Goal(context: dataController.viewContext)
         goal.creationDate = Date ()
         goal.project = project
-        goal.dailyGoal = Int32(dailyTextField.text!)!
+        goal.dailyGoal = dailyGoal
         try? dataController.viewContext.save()
-}
+    }
     
     @IBAction func DoneButton(_ sender: UIButton) {
         let dailyGoal = dailyTextField.text
         if (dailyGoal?.isEmpty)!  {
             self.displayError("Empty Daily Goal")
+        } else if let dailyGoal = Int32(dailyTextField.text!) {
+            saveGoal(dailyGoal)
+            self.navigationController!.popViewController(animated: true)
         } else {
-            saveGoal()
-        }
-        
-
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? UITabBarController {
-            if let vc0 = vc.viewControllers![0] as? ProjectsStatViewController {
-                vc0.dataController = dataController
-            }
-            if let vc1 = vc.viewControllers![1] as? GoalsStatViewController {
-                vc1.dataController = dataController
-            }
+            self.displayError("Invalid Input")
         }
     }
+    
+    // add segue to Tab Bar Controller
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let vc = segue.destination as? UITabBarController {
+//            if let vc0 = vc.viewControllers![0] as? ProjectsStatViewController {
+//                vc0.dataController = dataController
+//            }
+//            if let vc1 = vc.viewControllers![1] as? GoalsStatViewController {
+//                vc1.dataController = dataController
+//            }
+//        }
+//    }
     
     func displayError(_ error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)

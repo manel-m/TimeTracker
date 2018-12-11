@@ -14,11 +14,14 @@ import FirebaseDatabase
 
 class ProjectsStatViewController : UITableViewController {
     
+    // DataController property
     var dataController: DataController!
     var items: [ProjectItem] = []
     
+    // creat a Connection to Firebase
     let ref = Database.database().reference(withPath: "project-list")
     
+    // function to convert seconds to minutes and hours
     func timeDisplay (time : Int32)-> String {
         let seconds = time % 60
         let minutes = (time / 60) % 60
@@ -30,24 +33,23 @@ class ProjectsStatViewController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 1
+        // retrieve data in Firebase
         ref.observe(.value, with: { snapshot in
             print("snapshot observed")
-            // 2
+            //Store the latest version of the data in a local variable
             var newItems: [ProjectItem] = []
             
-            // 3
             for child in snapshot.children {
-                // 4
+                
                 if let snapshot = child as? DataSnapshot,
                     let projectItem = ProjectItem(snapshot: snapshot) {
                     print("projectItem(\(projectItem.name), \(projectItem.totalDuration))")
                     newItems.append(projectItem)
                 }
             }
-            
-            // 5
+            // Replace items with the latest version of the data
             self.items = newItems
+            // reload the table view
             self.tableView.reloadData()
         })
 
@@ -63,18 +65,15 @@ class ProjectsStatViewController : UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath)
         let projectItem = items[indexPath.row]
-//        print("display projectItem(\(projectItem.name), \(projectItem.totalDuration))")
         cell.textLabel?.text = projectItem.name
         if let detailTextLabel = cell.detailTextLabel {
             detailTextLabel.text = timeDisplay(time: projectItem.totalDuration)
-            //String(projectItem.totalDuration)
                     }
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let aProject = fetchedResultsController.object(at: indexPath)
         let projectItem = items[indexPath.row]
         
         let fetchRequest:NSFetchRequest<Project> = Project.fetchRequest()
@@ -84,11 +83,9 @@ class ProjectsStatViewController : UITableViewController {
             let projectController = self.storyboard!.instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
             projectController.dataController = dataController
             projectController.project = result[0]
-            self.present(projectController, animated: true, completion: nil)
+            self.navigationController!.pushViewController(projectController, animated: true)
 
-        } // handle fetch error 
-        
-        
+        } 
     }
 }
     

@@ -55,14 +55,14 @@ class ProjectViewController : UIViewController {
     }
     // add segue to Tab Bar Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? UITabBarController {
-            if let vc0 = vc.viewControllers![0] as? ProjectsStatViewController {
-                vc0.dataController = dataController
-            }
-            if let vc1 = vc.viewControllers![1] as? GoalsStatViewController {
-                vc1.dataController = dataController
-            }
-        }
+//        if let vc = segue.destination as? UITabBarController {
+//            if let vc0 = vc.viewControllers![0] as? ProjectsStatViewController {
+//                vc0.dataController = dataController
+//            }
+//            if let vc1 = vc.viewControllers![1] as? GoalsStatViewController {
+//                vc1.dataController = dataController
+//            }
+//        }
         if let vc = segue.destination as? GoalsViewController {
             vc.dataController = dataController
             vc.project = project
@@ -91,10 +91,6 @@ class ProjectViewController : UIViewController {
         
         // add totalDuration to FireBase
         let projectRef = self.db.child(project!.name!.lowercased())
-        // retrieve data in Firebase
-        projectRef.observe(.value, with: { snapshot in
-            print("project \(snapshot.value ?? nil)")
-        })
         projectRef.setValue([
             "name": project!.name!,
             "total_duration": project!.totalDuration

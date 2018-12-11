@@ -11,18 +11,27 @@ import  UIKit
 import CoreData
 class GoalsStatViewController: UITableViewController , NSFetchedResultsControllerDelegate {
     
-//    var project: Project?
+    // DataController property
     var dataController: DataController!
+    // add fetch results controller
     var fetchedResultsController: NSFetchedResultsController<Project>!
     
     override func viewDidLoad() {
+        print("goals_stat_view_did_load")
         super.viewDidLoad()
         setUpFetchedResultsController()
     }
     override func viewDidDisappear(_ animated: Bool) {
+        print("goals_stat_view_did_disappear")
         super.viewDidDisappear(animated)
         fetchedResultsController = nil
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpFetchedResultsController()
+    }
+
     fileprivate func setUpFetchedResultsController() {
         let fetchRequest: NSFetchRequest<Project> = Project.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key : "creationDate", ascending: false)
@@ -38,8 +47,9 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
     }
     func timeDisplay (time : Int32)-> String {
         let seconds = time % 60
-        let minutes = time / 60
-        let result = String(format: "%02d:%02d", minutes, seconds)
+        let minutes = (time / 60) % 60
+        let hour = time / 3600
+        let result = String(format: "%02d:%02d:%02d",hour, minutes, seconds)
         
         return result
     }
@@ -69,10 +79,9 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
                 detailTextLabel.text = "N/A"
             }
         }
-        
-        
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let aProject = fetchedResultsController.object(at: indexPath)
 

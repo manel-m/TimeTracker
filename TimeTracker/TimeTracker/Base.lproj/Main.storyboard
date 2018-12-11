@@ -143,21 +143,6 @@
                                     <action selector="PauseTimer:" destination="aH1-yi-LaW" eventType="touchUpInside" id="boj-gB-5vt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Thi-NP-J2q">
-                                <rect key="frame" x="26" y="430" width="333" height="30"/>
-                                <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="333" id="03P-Qf-nvY"/>
-                                    <constraint firstAttribute="height" constant="30" id="bNS-oo-pMt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Projects">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="8Vr-XZ-C4w" kind="showDetail" id="Tr5-0v-X3B"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTO-6K-c5t">
                                 <rect key="frame" x="110" y="161" width="150" height="60"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -183,8 +168,6 @@
                             <constraint firstAttribute="trailing" secondItem="GpA-Yo-1eg" secondAttribute="trailing" constant="163" id="5LC-Gq-I8E"/>
                             <constraint firstItem="mTO-6K-c5t" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="157" id="CDO-dM-BdG"/>
                             <constraint firstItem="mTO-6K-c5t" firstAttribute="top" secondItem="vs9-Go-xL6" secondAttribute="top" constant="141" id="Cob-Kz-1fS"/>
-                            <constraint firstItem="Thi-NP-J2q" firstAttribute="top" secondItem="LSW-YD-xZN" secondAttribute="bottom" constant="8" id="GIl-NY-IFB"/>
-                            <constraint firstItem="vs9-Go-xL6" firstAttribute="trailing" secondItem="Thi-NP-J2q" secondAttribute="trailing" constant="16" id="H5l-4S-eqt"/>
                             <constraint firstItem="mTO-6K-c5t" firstAttribute="top" secondItem="vs9-Go-xL6" secondAttribute="top" constant="141" id="Wch-3w-spQ"/>
                             <constraint firstItem="GpA-Yo-1eg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mTO-6K-c5t" secondAttribute="leading" id="WnD-iX-3Ae"/>
                             <constraint firstItem="GpA-Yo-1eg" firstAttribute="centerY" secondItem="1EB-cj-4Rv" secondAttribute="centerY" id="a9k-fK-IQB"/>
@@ -192,10 +175,8 @@
                             <constraint firstAttribute="trailing" secondItem="cTf-jB-zso" secondAttribute="trailing" constant="22" id="bbH-2F-ntg"/>
                             <constraint firstItem="mTO-6K-c5t" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="157" id="boW-TG-FWh"/>
                             <constraint firstItem="LSW-YD-xZN" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="26" id="hFf-NQ-t4j"/>
-                            <constraint firstItem="vs9-Go-xL6" firstAttribute="bottom" secondItem="Thi-NP-J2q" secondAttribute="bottom" constant="207" id="j1f-Xa-Mxi"/>
                             <constraint firstItem="cTf-jB-zso" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VXA-kN-gvH" secondAttribute="trailing" constant="8" symbolic="YES" id="nUO-au-Crb"/>
                             <constraint firstItem="VXA-kN-gvH" firstAttribute="centerY" secondItem="1EB-cj-4Rv" secondAttribute="centerY" id="ruP-9L-azo"/>
-                            <constraint firstItem="Thi-NP-J2q" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="26" id="tpI-8P-dtI"/>
                             <constraint firstItem="LSW-YD-xZN" firstAttribute="top" secondItem="VXA-kN-gvH" secondAttribute="bottom" constant="29" id="xOx-aK-mZE"/>
                             <constraint firstItem="VXA-kN-gvH" firstAttribute="leading" secondItem="vs9-Go-xL6" secondAttribute="leading" constant="26" id="zaD-6L-yDD"/>
                         </constraints>
@@ -354,7 +335,6 @@
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="DoneButton:" destination="jmg-7X-MUa" eventType="touchUpInside" id="TaK-Aw-mIm"/>
-                                    <segue destination="8Vr-XZ-C4w" kind="show" id="mt8-KW-E04"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Daily Goals (Minutes)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cc-Dz-Ea6">
@@ -380,7 +360,4 @@
     <resources>
         <image name="TimeTracker" width="225" height="225"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Tr5-0v-X3B"/>
-    </inferredMetricsTieBreakers>
 </document>

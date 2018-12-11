@@ -15,7 +15,7 @@ class InitialViewController: UIViewController {
     
     //FirebaseDatabase
     var db: DatabaseReference!
-    // DataController property
+    // Core Data Controller
     var dataController:DataController!
     
     override func viewDidLoad() {
