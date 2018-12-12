@@ -17,23 +17,18 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
     var fetchedResultsController: NSFetchedResultsController<Project>!
     
     override func viewDidLoad() {
-        print("goals_stat_view_did_load")
         super.viewDidLoad()
         setUpFetchedResultsController()
     }
     override func viewDidDisappear(_ animated: Bool) {
-        print("goals_stat_view_did_disappear")
         super.viewDidDisappear(animated)
         fetchedResultsController = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("goals_stat_view_will_appear")
         super.viewWillAppear(animated)
         setUpFetchedResultsController()
-//        if let indexPath = tableView.indexPathForSelectedRow {
-//            tableView.deselectRow(at: indexPath, animated: false)
-//            tableView.reloadRows(at: [indexPath], with: .fade)
-//        }
     }
 
     fileprivate func setUpFetchedResultsController() {
@@ -48,7 +43,9 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
         } catch {
             fatalError("The fetch cannot be perfrmed: \(error.localizedDescription)")
         }
+        tableView.reloadData()
     }
+    
     func timeDisplay (time : Int32)-> String {
         let seconds = time % 60
         let minutes = (time / 60) % 60
@@ -60,13 +57,6 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 1
     }
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        if let sections = fetchedResultsController.sections{
-//            return sections.count
-//        } else {
-//            return 1
-//        }
-//    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
@@ -97,19 +87,14 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
         self.navigationController!.pushViewController(projectController, animated: true)
         
     }
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let projectToDelete = fetchedResultsController.object(at: indexPath)
-//            dataController.viewContext.delete(projectToDelete)
-//            try? dataController.viewContext.save()
-//        }
-//    }
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete: deleteProject(at: indexPath)
         default: ()
         }
     }
+    
     // Delete the project at the specified index path
     func deleteProject(at indexPath: IndexPath) {
         let projectToDelete = fetchedResultsController.object(at: indexPath)
@@ -144,7 +129,6 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
             fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .delete should be possible.")
         }
     }
-    
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

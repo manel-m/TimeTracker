@@ -26,11 +26,11 @@ class GoalsViewController : UIViewController {
     }
     
     @IBAction func DoneButton(_ sender: UIButton) {
-        let dailyGoal = weeklyGoalTextField.text
-        if (dailyGoal?.isEmpty)!  {
-            self.displayError("Empty Daily Goal")
-        } else if let dailyGoal = Int32(weeklyGoalTextField.text!) {
-            saveGoal(dailyGoal)
+        let weeklyGoalTxt = weeklyGoalTextField.text
+        if (weeklyGoalTxt?.isEmpty)!  {
+            self.displayError("Empty Weekly Goal")
+        } else if let weeklyGoal = Int32(weeklyGoalTxt!) {
+            saveGoal(weeklyGoal)
             self.navigationController!.popViewController(animated: true)
         } else {
             self.displayError("Invalid Input")
