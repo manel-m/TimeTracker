@@ -325,7 +325,7 @@
                                     <action selector="DoneButton:" destination="jmg-7X-MUa" eventType="touchUpInside" id="TaK-Aw-mIm"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dd-b7-pRA">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dd-b7-pRA" userLabel="Weekly Goal Text Field">
                                 <rect key="frame" x="134" y="318.5" width="107" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="bat-Fz-Wsg"/>
@@ -335,7 +335,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Goals (Minutes):" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cc-Dz-Ea6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Goals (Hours):" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cc-Dz-Ea6">
                                 <rect key="frame" x="96.5" y="279" width="182" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="lPM-Wr-9zg"/>
@@ -357,7 +357,7 @@
                         <viewLayoutGuide key="safeArea" id="5Qj-70-B23"/>
                     </view>
                     <connections>
-                        <outlet property="dailyTextField" destination="8dd-b7-pRA" id="kN7-zm-vCw"/>
+                        <outlet property="weeklyGoalTextField" destination="8dd-b7-pRA" id="FJX-rf-DEW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdw-UN-LEv" userLabel="First Responder" sceneMemberID="firstResponder"/>

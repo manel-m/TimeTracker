@@ -14,22 +14,22 @@ class GoalsViewController : UIViewController {
     var dataController:DataController!
     var project: Project?
     
-    @IBOutlet weak var dailyTextField: UITextField!
+    @IBOutlet weak var weeklyGoalTextField: UITextField!
     
    //  add Goal to persistent store
-    func saveGoal (_ dailyGoal: Int32) {
+    func saveGoal (_ weeklyGoal: Int32) {
         let goal = Goal(context: dataController.viewContext)
         goal.creationDate = Date ()
         goal.project = project
-        goal.dailyGoal = dailyGoal
+        goal.weeklyGoal = weeklyGoal
         try? dataController.viewContext.save()
     }
     
     @IBAction func DoneButton(_ sender: UIButton) {
-        let dailyGoal = dailyTextField.text
+        let dailyGoal = weeklyGoalTextField.text
         if (dailyGoal?.isEmpty)!  {
             self.displayError("Empty Daily Goal")
-        } else if let dailyGoal = Int32(dailyTextField.text!) {
+        } else if let dailyGoal = Int32(weeklyGoalTextField.text!) {
             saveGoal(dailyGoal)
             self.navigationController!.popViewController(animated: true)
         } else {
