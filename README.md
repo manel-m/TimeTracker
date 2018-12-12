@@ -21,9 +21,9 @@ To do list :
   - Add reminder.
   
 Prerequisites for Firebase :
-  - Install CocoaPods (https://guides.cocoapods.org/using/getting-started.html#getting-started).
-  - Execute pod install in the project directory in terminal
-  - Open the .xcworkspace file.
+  - Install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html#getting-started).
+  - Execute _pod install_ in the project directory in terminal
+  - Open the _.xcworkspace_ file.
   
 Notes :
    - We don’t need a separate class for networking as its already encapsulated by the Firebase client.
