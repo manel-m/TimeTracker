@@ -17,10 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // DataController property
     let dataController = DataController(modelName: "TimeTracker")
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // connect Firebase 
         FirebaseApp.configure()
+        
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { snapshot in
+            if snapshot.value as? Bool ?? false {
+                print("Connected")
+            } else {
+                print("Not connected")
+            }
+        })
+        
         // load the persistent store
         dataController.load()
 

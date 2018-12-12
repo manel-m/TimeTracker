@@ -62,7 +62,17 @@ class ProjectsStatViewController : UITableViewController {
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
         })
-
+        
+        // test Network connection
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { snapshot in
+            if snapshot.value as? Bool ?? false {
+                print("Connected")
+            } else {
+                print("Not connected")
+                self.displayError("Could not connected to Firebase")
+            }
+        })
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -101,6 +111,11 @@ class ProjectsStatViewController : UITableViewController {
             let projectItem = items[indexPath.row]
             projectItem.ref?.removeValue()
         }
+    }
+    func displayError(_ error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 }
     
