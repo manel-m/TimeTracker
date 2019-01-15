@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import Firebase
+//import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,16 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // connect Firebase 
-        FirebaseApp.configure()
+        //FirebaseApp.configure()
         
-        let connectedRef = Database.database().reference(withPath: ".info/connected")
-        connectedRef.observe(.value, with: { snapshot in
-            if snapshot.value as? Bool ?? false {
-                print("Connected")
-            } else {
-                print("Not connected")
-            }
-        })
+//        let connectedRef = Database.database().reference(withPath: ".info/connected")
+//        connectedRef.observe(.value, with: { snapshot in
+//            if snapshot.value as? Bool ?? false {
+//                print("Connected")
+//            } else {
+//                print("Not connected")
+//            }
+//        })
         
         // load the persistent store
         dataController.load()

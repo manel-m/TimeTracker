@@ -8,20 +8,20 @@
 
 import UIKit
 import CoreData
-import Firebase
-import FirebaseDatabase
+//import Firebase
+//import FirebaseDatabase
 
 class InitialViewController: UIViewController {
     
     //Firebase Database
-    var db: DatabaseReference!
+    //var db: DatabaseReference!
     // Core Data Controller
     var dataController:DataController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // creat a Connection to Firebase
-        db = Database.database().reference(withPath: "project-list")
+       // db = Database.database().reference(withPath: "project-list")
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,12 +90,12 @@ class InitialViewController: UIViewController {
         try? dataController.viewContext.save()
         
         // add project to FireBase
-        let projectRef = self.db.child(nameProject.lowercased())
+        //let projectRef = self.db.child(nameProject.lowercased())
         // save data to the database.
-        projectRef.setValue([
-            "name": nameProject,
-            "total_duration": project.totalDuration
-        ])
+//        projectRef.setValue([
+//            "name": nameProject,
+//            "total_duration": project.totalDuration
+//        ])
         
         return project
     }

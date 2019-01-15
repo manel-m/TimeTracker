@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 import CoreData
-import Firebase
-import FirebaseDatabase
+//import Firebase
+//import FirebaseDatabase
 
 class ProjectsStatViewController : UITableViewController {
     
@@ -19,7 +19,7 @@ class ProjectsStatViewController : UITableViewController {
     var items: [ProjectItem] = []
     
     // creat a Connection to Firebase
-    let ref = Database.database().reference(withPath: "project-list")
+    //let ref = Database.database().reference(withPath: "project-list")
     
     // create activity indicators
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -44,35 +44,35 @@ class ProjectsStatViewController : UITableViewController {
         // start activity indicator
         activityIndicator.startAnimating()
         // retrieve data in Firebase
-        ref.observe(.value, with: { snapshot in
-            //Store the latest version of the data in a local variable
-            var newItems: [ProjectItem] = []
-            
-            for child in snapshot.children {
-                
-                if let snapshot = child as? DataSnapshot,
-                    let projectItem = ProjectItem(snapshot: snapshot) {
-                    print("projectItem(\(projectItem.name), \(projectItem.totalDuration))")
-                    newItems.append(projectItem)
-                }
-            }
-            // Replace items with the latest version of the data
-            self.items = newItems
-            // reload the table view
-            self.tableView.reloadData()
-            self.activityIndicator.stopAnimating()
-        })
-        
-        // test Network connection
-        let connectedRef = Database.database().reference(withPath: ".info/connected")
-        connectedRef.observe(.value, with: { snapshot in
-            if snapshot.value as? Bool ?? false {
-                print("Connected")
-            } else {
-                print("Not connected")
-                self.displayError("Could not connected to Firebase")
-            }
-        })
+//        ref.observe(.value, with: { snapshot in
+//            //Store the latest version of the data in a local variable
+//            var newItems: [ProjectItem] = []
+//            
+//            for child in snapshot.children {
+//                
+//                if let snapshot = child as? DataSnapshot,
+//                    let projectItem = ProjectItem(snapshot: snapshot) {
+//                    print("projectItem(\(projectItem.name), \(projectItem.totalDuration))")
+//                    newItems.append(projectItem)
+//                }
+//            }
+//            // Replace items with the latest version of the data
+//            self.items = newItems
+//            // reload the table view
+//            self.tableView.reloadData()
+//            self.activityIndicator.stopAnimating()
+//        })
+//        
+//        // test Network connection
+//        let connectedRef = Database.database().reference(withPath: ".info/connected")
+//        connectedRef.observe(.value, with: { snapshot in
+//            if snapshot.value as? Bool ?? false {
+//                print("Connected")
+//            } else {
+//                print("Not connected")
+//                self.displayError("Could not connected to Firebase")
+//            }
+//        })
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

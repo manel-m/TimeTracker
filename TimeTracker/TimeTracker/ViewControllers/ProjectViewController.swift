@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 import CoreData
-import Firebase
-import FirebaseDatabase
+//import Firebase
+//import FirebaseDatabase
 
 class ProjectViewController : UIViewController {
     
     //FirebaseDatabase
-    var db: DatabaseReference!
+    //var db: DatabaseReference!
     //  Core Data Controller
     var dataController:DataController!
     var project: Project?
@@ -33,7 +33,7 @@ class ProjectViewController : UIViewController {
         super.viewDidLoad()
         navBar.title = project?.name
         // creat a Connection to Firebase
-        db = Database.database().reference(withPath: "project-list")
+        //db = Database.database().reference(withPath: "project-list")
     }
     
     @IBAction func StartTimer(_ sender: UIButton) {
@@ -82,11 +82,11 @@ class ProjectViewController : UIViewController {
         try? dataController.viewContext.save()
         
         // add totalDuration to FireBase
-        let projectRef = self.db.child(project!.name!.lowercased())
-        projectRef.setValue([
-            "name": project!.name!,
-            "total_duration": project!.totalDuration
-            ])
+        //let projectRef = self.db.child(project!.name!.lowercased())
+//        projectRef.setValue([
+//            "name": project!.name!,
+//            "total_duration": project!.totalDuration
+//            ])
     }
 
     
