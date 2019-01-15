@@ -101,8 +101,6 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
         dataController.viewContext.delete(projectToDelete)
         try? dataController.viewContext.save()
         
-        //tableView.reloadData()
-        
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
