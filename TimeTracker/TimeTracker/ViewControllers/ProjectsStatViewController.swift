@@ -38,6 +38,8 @@ class ProjectsStatViewController : UITableViewController, NSFetchedResultsContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tableView.backgroundView = UIImageView(image: UIImage(named: "background.png"))
+       self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         setUpFetchedResultsController()
         // dedails of activity indicator
         activityIndicator.center = self.view.center

@@ -18,6 +18,7 @@ class GoalsStatViewController: UITableViewController , NSFetchedResultsControlle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         setUpFetchedResultsController()
     }
     override func viewDidDisappear(_ animated: Bool) {
