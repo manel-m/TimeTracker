@@ -19,9 +19,15 @@ class ProjectViewController : UIViewController {
     //  Core Data Controller
     var dataController:DataController!
     var project: Project?
-    var time = 0
     var timer = Timer()
-    
+    // delete this from here
+    var hrs = 0
+    var min = 0
+    var sec = 0
+//    var diffHrs = 0
+//    var diffMins = 0
+//    var diffSecs = 0
+    // to here
     
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var timeLabel: UILabel!
@@ -34,12 +40,20 @@ class ProjectViewController : UIViewController {
         navBar.title = project?.name
         // creat a Connection to Firebase
         //db = Database.database().reference(withPath: "project-list")
+        // delete this forom here
+        NotificationCenter.default.addObserver(self, selector: #selector(pauseWhenBackground(noti:)), name: .UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(noti:)), name: .UIApplicationWillEnterForeground, object: nil)
+        // to here
     }
     
     @IBAction func StartTimer(_ sender: UIButton) {
         //scheduledTimer
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ProjectViewController.Action), userInfo: nil, repeats: true)
+        //////// here take off comment
+//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ProjectViewController.Action), userInfo: nil, repeats: true)
         startButton.isEnabled = false
+        // delete from here
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ProjectViewController.updateLabels(t:))), userInfo: nil, repeats: true)
+        // to here
     }
     
     @IBAction func PauseTimer(_ sender: UIButton) {
@@ -48,10 +62,77 @@ class ProjectViewController : UIViewController {
     }
     @IBAction func StopTimer(_ sender: UIButton) {
         startButton.isEnabled = true
+        addTask(duration:Int32(self.sec + self.min*60 + self.hrs*3600) )
+        self.resetContent()
+    }
+    
+    // delete this function
+    @objc func pauseWhenBackground(noti: Notification) {
+        self.timer.invalidate()
+        let shared = UserDefaults.standard
+        shared.set(Date(), forKey: "savedTime")
+    }
+    // delete this fuction
+    @objc func willEnterForeground(noti: Notification) {
+        if let savedDate = UserDefaults.standard.object(forKey: "savedTime") as? Date {
+            var diffHrs, diffMins, diffSecs: Int
+            (diffHrs, diffMins, diffSecs) = ProjectViewController.getTimeDifference(startDate: savedDate)
+            
+            self.refresh(hours: diffHrs, mins: diffMins, secs: diffSecs)
+        }
+    }
+    // delete this function
+    func resetContent() {
+        self.removeSavedDate()
         timer.invalidate()
-        addTask(duration:Int32(time) )
-        time = 0
-        timeLabel.text = timeDisplay(time: Int32(time))
+        self.timeLabel.text = "00:00:00"
+        self.sec = 0
+        self.min = 0
+        self.hrs = 0
+    }
+    // delete this function
+    @objc func updateLabels(t: Timer) {
+        self.sec += 1
+        if (self.sec == 60) {
+            self.min += 1
+            self.sec = 0
+            if (self.min == 60) {
+                self.hrs += 1
+                self.min = 0
+            }
+        }
+        displayTime()
+    }
+// delete this function
+    static func getTimeDifference(startDate: Date) -> (Int, Int, Int) {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute, .second], from: startDate, to: Date())
+        return(components.hour!, components.minute!, components.second!)
+    }
+    
+    // delete this function
+    func refresh (hours: Int, mins: Int, secs: Int) {
+        self.sec += secs
+        self.min += mins
+        self.hrs += hours
+        
+        self.min += self.sec / 60
+        self.sec = self.sec % 60
+        self.hrs += self.min / 60
+        self.min = self.min % 60
+
+        displayTime()
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ProjectViewController.updateLabels(t:))), userInfo: nil, repeats: true)
+    }
+    
+    func displayTime() {
+        self.timeLabel.text = String(format: "%02d:%02d:%02d", self.hrs, self.min, self.sec)
+    }
+    // delete this function
+    func removeSavedDate() {
+        if (UserDefaults.standard.object(forKey: "savedTime") as? Date) != nil {
+            UserDefaults.standard.removeObject(forKey: "savedTime")
+        }
     }
     // add segue to Tab Bar Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,17 +140,6 @@ class ProjectViewController : UIViewController {
             vc.dataController = dataController
             vc.project = project
         }
-    }
-    
-    @objc func Action (){
-        time += 1
-        timeLabel.text = timeDisplay(time: Int32(time))
-    }
-    func timeDisplay (time : Int32)-> String {
-        let seconds = time % 60
-        let minutes = (time / 60)
-        let result = String(format: "%02d:%02d", minutes, seconds)
-        return result
     }
     
     func addTask (duration : Int32) {
