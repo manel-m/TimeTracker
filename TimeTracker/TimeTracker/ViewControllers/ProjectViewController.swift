@@ -48,12 +48,9 @@ class ProjectViewController : UIViewController {
     
     @IBAction func StartTimer(_ sender: UIButton) {
         //scheduledTimer
-        //////// here take off comment
 //        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ProjectViewController.Action), userInfo: nil, repeats: true)
         startButton.isEnabled = false
-        // delete from here
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ProjectViewController.updateLabels(t:))), userInfo: nil, repeats: true)
-        // to here
     }
     
     @IBAction func PauseTimer(_ sender: UIButton) {
